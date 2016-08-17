@@ -59,3 +59,55 @@ console.log(halfArray);
 for (var i = halfArray; i < plusJamie.length; i++) {
   console.log(plusJamie[i]);
 }
+
+
+/* 3rd set of homework */
+
+// Palindrome
+function reverseString (str) {
+  var splitString = str.split("");
+  var reverseArray = splitString.reverse();
+  var joinArray = reverseArray.join("");
+  return joinArray;
+}
+
+function palindrome (str) {
+  if (reverseString(str) == str) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+var str = "borscht";
+
+if (palindrome(str) === true) {
+  console.log('The word "' + str + '" is a palindrome.');
+} else {
+  console.log('The word "' + str + '" is not a palindrome.')  ;
+}
+
+
+//Max of Three
+function maxOfThree (a, b, c) {
+  if (a >= b) {
+    var max = a;
+  } else {
+    var max= b;
+  }
+
+  if (max >= c) {
+    return max
+  } else {
+    return c
+  }
+}
+
+console.log(maxOfThree(100,7,3));
+
+
+//Pythagoras
+function pythagoras (sideA, sideB) {
+  return Math.pow((Math.pow(sideA, 2) + Math.pow(sideB, 2)), 1/2);
+}
+console.log(pythagoras(8,6));
