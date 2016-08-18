@@ -111,3 +111,45 @@ function pythagoras (sideA, sideB) {
   return Math.pow((Math.pow(sideA, 2) + Math.pow(sideB, 2)), 1/2);
 }
 console.log(pythagoras(8,6));
+
+
+/* 4th set of homework */
+
+// Calc
+function calc (num1, num2, operation) {
+
+switch (operation) {
+  case "add":
+    return num1 + num2;
+    break;
+  case "sub":
+    return num1 - num2;
+    break;
+  case "mult":
+    return num1 * num2;
+    break;
+  case "div":
+    return num1 / num2;
+    break;
+  case "exp":
+    return Math.pow(num1, num2);
+    break;
+  default:
+   return "Please enter an operation";
+  }
+}
+
+console.log(calc(2,3, "exp"));
+
+
+// isAVowel
+function isAVowel(char) {
+  if (char === "a" || char === "e" || char === "i" || char === "o" || char === "u") {
+    console.log("true")
+  } else {
+    console.log("false")
+  }
+}
+
+isAVowel("b");
+isAVowel("a");
