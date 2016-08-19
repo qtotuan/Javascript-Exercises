@@ -112,9 +112,9 @@ function findMax (arr) {
     return "Your array is empty.";
   }
   var higherNumber = myArray[0];
-  for (var i = 0; i < arr.length-1; i++) {
-    if (arr[i] > higherNumber) {
-      higherNumber = arr[i];
+    for (var i = 0; i < arr.length-1; i++) {
+      if (arr[i] > higherNumber) {
+        higherNumber = arr[i];
     }
   }
  return "Your max of this array is: " + higherNumber;
@@ -220,3 +220,42 @@ var scopeExample = function() {
 
 scopeExample();
 /* scopeExample logs 5 because the global variable is overridden by the more immediate local variable. THe code i being read in a linear way and the last variable wins.*/
+
+
+/* 6th set of homework */
+var solarSystem = [
+	{ name: "Mercury", ringSystem: false, moons: [] },
+	{ name: "Venus", ringSystem: false, moons: [] },
+	{ name: "Earth", ringSystem: false, moons: ["The Moon"] },
+	{ name: "Mars", ringSystem: false, moons: ["Phobos", "Deimos"] },
+	{ name: "Jupiter", ringSystem: true, moons: ["Europa", "Ganymede", "Io", "Callisto"] },
+	{ name: "Saturn", ringSystem: true, moons: ["Titan", "Enceladus", "Rhea", "Mimas"] },
+	{ name: "Uranus", ringSystem: true, moons: ["Miranda", "Titania", "Ariel", "Umbriel"] },
+	{ name: "Neptune", ringSystem: true, moons: ["Triton", "Nereid"] }
+];
+
+//1
+console.log("Jupiter's moons are " + solarSystem[4].moons);
+//2
+console.log("Neptune's second moon is " + solarSystem[7].moons[1])
+//3
+solarSystem[1].moons = "Endor";
+console.log("Venus moon is " + solarSystem[1].moons);
+//4
+solarSystem.push({name: "Pluto", ringSystem: false, moons: ["Charon"]});
+console.log("The new object in the array is: " + solarSystem[8]);
+//5
+solarSystem[2].diameter = "50,000 miles";
+console.log("Earth diameter is " + solarSystem[2].diameter);
+//6
+solarSystem[0].ringSystem = true;
+console.log("Mercury's ringSystem is " + solarSystem[0].ringSystem);
+//7
+solarSystem[6].moons[3] = "Oberon";
+console.log("Uranus' moons are " + solarSystem[6].moons);
+//8
+for (var i = 0; i < solarSystem.length; i++) {
+  if (solarSystem[i].ringSystem == true) {
+    console.log(solarSystem[i]);
+  }
+}
