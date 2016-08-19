@@ -145,11 +145,18 @@ console.log(calc(2,3, "exp"));
 // isAVowel
 function isAVowel(char) {
   if (char === "a" || char === "e" || char === "i" || char === "o" || char === "u") {
-    console.log("true")
+    console.log(char + " is a vowel" + " - true")
   } else {
-    console.log("false")
+    console.log(char + " is not a vowel" + " - false")
   }
 }
 
 isAVowel("b");
 isAVowel("a");
+
+
+//Number of arguments
+function args () {
+  console.log("The number of arguments is: " + arguments.length);
+}
+args([], {}, true);
