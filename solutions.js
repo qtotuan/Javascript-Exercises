@@ -103,7 +103,23 @@ function maxOfThree (a, b, c) {
   }
 }
 
-console.log(maxOfThree(100,7,3));
+console.log("Your max of three is " + maxOfThree(100,7,3));
+
+// Max of three = ADVANCED :)
+var myArray = [];
+function findMax (arr) {
+  if (myArray.length < 1) {
+    return "Your array is empty.";
+  }
+  var higherNumber = myArray[0];
+  for (var i = 0; i < arr.length-1; i++) {
+    if (arr[i] > higherNumber) {
+      higherNumber = arr[i];
+    }
+  }
+ return "Your max of this array is: " + higherNumber;
+}
+console.log(findMax(myArray));
 
 
 //Pythagoras
@@ -160,3 +176,47 @@ function args () {
   console.log("The number of arguments is: " + arguments.length);
 }
 args([], {}, true);
+
+
+/* 5th set of homework */
+
+//Scope
+var hexColor = '#0000FF';
+
+var showColor = function() {
+	console.log(hexColor);
+};
+
+showColor();
+/* The function does not require an argument because hexColor is a global variable which has been defined outside the function. It is available everywehere.*/
+
+var hexColor = '#C61531';
+
+var showColor = function(hexColor) {
+	console.log(hexColor);
+};
+
+showColor('#0000FF');
+/* Javascript reads code in a linear way, so the variable/argument that has been defined last, wins.*/
+
+var scopeExample = function() {
+	var num = 5;
+	console.log(num);
+}
+
+var theOther = function() {
+	console.log(num);
+}
+
+theOther();
+/* Thefucntion theOther cannot access the variable num because num is a local variable. */
+
+var num = 8;
+
+var scopeExample = function() {
+	num = 5;
+	console.log(num);
+}
+
+scopeExample();
+/* scopeExample logs 5 because the global variable is overridden by the more immediate local variable. THe code i being read in a linear way and the last variable wins.*/
