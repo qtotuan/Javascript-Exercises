@@ -106,13 +106,13 @@ function maxOfThree (a, b, c) {
 console.log("Your max of three is " + maxOfThree(100,7,3));
 
 // Max of three = ADVANCED :)
-var myArray = [];
+var myArray = [-1,6,7,39,4,8];
 function findMax (arr) {
   if (myArray.length < 1) {
     return "Your array is empty.";
   }
   var higherNumber = myArray[0];
-    for (var i = 0; i < arr.length-1; i++) {
+    for (var i = 0; i < arr.length; i++) {
       if (arr[i] > higherNumber) {
         higherNumber = arr[i];
     }
