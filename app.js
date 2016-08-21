@@ -24,28 +24,72 @@ var bondFilms = [
   { "title" : "License to Kill", "year" : 1989, "actor" : "Timothy Dalton", "gross" : "$285,157,191" }
 ];
 
-// 1.
-var sumGross = 0;
+// // 1.
+// var sumGross = 0;
+// for (var i = 0; i < bondFilms.length; i++) {
+//   var currency = bondFilms[i].gross;
+//   var number = Number(currency.replace(/[^0-9\.]+/g,""));
+//   sumGross = sumGross + number
+// }
+//
+// console.log(sumGross.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,'));
+//
+// // 2.
+// var bondTitles = [];
+// for (var i = 0; i < bondFilms.length; i++) {
+//   bondTitles.push(bondFilms[i].title);
+// }
+// console.log(bondTitles);
+//
+// // 3.
+// var oddBonds = [];
+// for (var i = 0; i < bondFilms.length; i++) {
+//   if (bondFilms[i].year % 2 === 1) {
+//     oddBonds.push(bondFilms[i].title);
+//   }
+// }
+// console.log(oddBonds);
+
+
+
+
+// Humdinger
+
+// Iterate over films, and put all actor names into a new array,
+// including doubles
+var bondActors = [];
 for (var i = 0; i < bondFilms.length; i++) {
-  var currency = bondFilms[i].gross;
-  var number = Number(currency.replace(/[^0-9\.]+/g,""));
-  sumGross = sumGross + number
+  bondActors.push(bondFilms[i].actor);
 }
 
-console.log(sumGross.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,'));
+// Create a new object with actor names as *unique* keys
+// and increase value, whenever actor names appears multiple times
+var uniqueActors = {};
 
-// 2.
-var bondTitles = [];
-for (var i = 0; i < bondFilms.length; i++) {
-  bondTitles.push(bondFilms[i].title);
-}
-console.log(bondTitles);
-
-// 3.
-var oddBonds = [];
-for (var i = 0; i < bondFilms.length; i++) {
-  if (bondFilms[i].year % 2 === 1) {
-    oddBonds.push(bondFilms[i].title);
+for (var i = 0; i < bondActors.length; i++) {
+  if (uniqueActors[bondActors[i]] === undefined) { // if the key does not exist yet
+    uniqueActors[bondActors[i]] = 1; // create new key and set value to 1
+  } else {
+    uniqueActors[bondActors[i]] += 1; // if key already exists, increase value by 1
   }
 }
-console.log(oddBonds);
+console.log(uniqueActors);
+
+// Find the minimum key value of the uniqueActors object
+var minActor = 0;
+var minMovies = 1000;
+for (var key in uniqueActors) { // iterate over keys in an object
+  if (uniqueActors[key] < minMovies) { // Is the key value lower than the stored movies variable?
+    minMovies = uniqueActors[key]; // update number of movies
+    minActor = key; // update according actor name
+  }
+}
+// console.log(minActor);
+// console.log(minMovies);
+
+// Iterate over original bondFilms and find the minActor name > print movie object
+for (var i = 0; i < bondFilms.length; i++) {
+  if (bondFilms[i].actor == minActor) {
+    console.log(bondFilms[i]);
+  }
+}
